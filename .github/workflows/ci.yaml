@@ -4,9 +4,9 @@ name: CI
 # tests, or build) fails the pipeline.
 on:
   push:
-    branches: [main]
+    branches: [master]
   pull_request:
-    branches: [main]
+    branches: [master]
 
 jobs:
   build:
