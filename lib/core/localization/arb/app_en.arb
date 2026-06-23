@@ -1,0 +1,92 @@
+{
+  "@@locale": "en",
+  "appTitle": "Crypto Tracker",
+  "@appTitle": {
+    "description": "Application title shown on the home app bar."
+  },
+  "navMarket": "Market",
+  "navSearch": "Search",
+  "navFavorites": "Favorites",
+  "searchHint": "Search by name or symbol",
+  "searchServerMode": "Searching all coins on CoinGecko",
+  "searchMinCharsHint": "Type at least {minChars} characters to search",
+  "@searchMinCharsHint": {
+    "placeholders": {
+      "minChars": { "type": "int" }
+    }
+  },
+  "searchEmptyTitle": "Search all coins",
+  "searchEmptyMessage": "Enter at least {minChars} characters to search CoinGecko.",
+  "@searchEmptyMessage": {
+    "placeholders": {
+      "minChars": { "type": "int" }
+    }
+  },
+  "searchLocalMode": "Filtering loaded coins — type {minChars}+ chars to search all",
+  "@searchLocalMode": {
+    "placeholders": {
+      "minChars": { "type": "int" }
+    }
+  },
+  "searchHistoryTitle": "Recent searches",
+  "searchHistoryClear": "Clear",
+  "overviewGlobalTitle": "Global overview",
+  "offlineBannerMessage": "You are offline. Showing cached data.",
+  "retry": "Retry",
+  "emptyMarketTitle": "No coins available",
+  "emptyMarketMessage": "We couldn't find any coins to display right now.",
+  "emptySearchTitle": "No results",
+  "emptySearchMessage": "No coins match \"{query}\".",
+  "@emptySearchMessage": {
+    "placeholders": {
+      "query": { "type": "String" }
+    }
+  },
+  "emptyFavoritesTitle": "No favorites yet",
+  "emptyFavoritesMessage": "Tap the star on any coin to add it here.",
+  "endOfListReached": "You've reached the end of the list.",
+  "errorNoInternetTitle": "No internet connection",
+  "errorNoInternetMessage": "Please check your connection and try again.",
+  "errorTimeoutTitle": "Request timed out",
+  "errorTimeoutMessage": "The server took too long to respond. Please try again.",
+  "errorServerTitle": "Something went wrong",
+  "errorServerMessage": "Our servers returned an error. Please try again later.",
+  "errorUnknownTitle": "Unexpected error",
+  "errorUnknownMessage": "An unexpected error occurred. Please try again.",
+  "errorCacheTitle": "No cached data",
+  "errorCacheMessage": "You're offline and we have no saved data to show.",
+  "coinDetailMarketCap": "Market Cap",
+  "coinDetailVolume": "24h Volume",
+  "coinDetailAth": "All-Time High",
+  "coinDetailAtl": "All-Time Low",
+  "coinDetailRank": "Rank",
+  "coinDetailRankShort": "RANK #{rank}",
+  "@coinDetailRankShort": {
+    "placeholders": {
+      "rank": { "type": "int" }
+    }
+  },
+  "coinDetailSupply": "Circulating Supply",
+  "coinDetailMaxSupply": "Max Supply",
+  "maxSupplyUncapped": "∞ uncapped",
+  "overviewTrending": "Trending",
+  "overviewMarketCapLabel": "Market Cap · 24h",
+  "overviewVolumeLabel": "Volume · 24h",
+  "coinDetailAbout": "About {name}",
+  "@coinDetailAbout": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "addToFavorites": "Add to favorites",
+  "removeFromFavorites": "Remove from favorites",
+  "settingsTheme": "Theme",
+  "settingsLanguage": "Language",
+  "themeSystem": "System",
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "settingsLiveUpdates": "Live updates",
+  "settingsLiveUpdatesTitle": "Auto-refresh market prices",
+  "settingsLiveUpdatesSubtitle": "Refresh every 120s on the Market tab while online. Pull-to-refresh still works when off.",
+  "refreshUpdating": "Syncing live data"
+}

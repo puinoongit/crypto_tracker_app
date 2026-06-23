@@ -1,0 +1,21 @@
+#!/bin/sh
+# Runs before each commit. Enable once per clone:
+#   git config core.hooksPath .githooks
+
+set -e
+
+root="$(git rev-parse --show-toplevel)"
+cd "$root"
+
+staged_dart="$(git diff --cached --name-only --diff-filter=ACM | grep '\.dart$' || true)"
+
+if [ -n "$staged_dart" ]; then
+  printf '%s\n' "$staged_dart" | while IFS= read -r file; do
+    dart format "$file"
+    git add "$file"
+  done
+fi
+
+if [ -n "$staged_dart" ] || git diff --cached --name-only | grep -qE '^(pubspec\.yaml|analysis_options\.yaml)$'; then
+  flutter analyze
+fi

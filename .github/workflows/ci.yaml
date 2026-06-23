@@ -1,0 +1,63 @@
+name: CI
+
+# Runs on every push and pull request. Any failing step (formatting, analysis,
+# tests, or build) fails the pipeline.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Analyze, Test & Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java (required for the Android build)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.44.1"
+          channel: stable
+          cache: true
+
+      # 1. Resolve dependencies.
+      - name: Install dependencies
+        run: flutter pub get
+
+      # (generated localizations are produced automatically by the build, but we
+      #  run gen-l10n explicitly so analyze/test see the latest output.)
+      - name: Generate localizations
+        run: flutter gen-l10n
+
+      # 2. Fail if the code isn't formatted.
+      - name: Verify formatting
+        run: dart format --set-exit-if-changed .
+
+      # 3. Static analysis — fails on warnings/errors.
+      - name: Analyze
+        run: flutter analyze
+
+      # 4. Run the test suite with coverage.
+      - name: Run tests
+        run: flutter test --coverage
+
+      - name: Upload coverage artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage
+          path: coverage/lcov.info
+
+      # 5. Build the release APK.
+      - name: Build APK
+        run: flutter build apk --dart-define=COINGECKO_API_KEY=${{ secrets.COINGECKO_API_KEY }}
